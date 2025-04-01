@@ -8,7 +8,7 @@
   cursor: pointer;
 
   display: grid;
-  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: rem(8px);
 
   border-radius: rem(6px);
@@ -28,8 +28,9 @@
   @media #{media('<',d)} {
     border-radius: rem(4px);
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, minmax(auto, 1fr));
+    grid-template-rows: repeat(2, auto);
     width: rem(351px);
+    gap: 0;
   }
 
   &__icons {
@@ -101,7 +102,7 @@
 
     @media #{media('<',d)} {
       width: rem(335px);
-      padding: rem(30px);
+      padding: rem(34px);
     }
   }
   &__media {
@@ -278,6 +279,10 @@
   &__subline {
     display: flex;
     justify-content: space-between;
+
+    @media #{media('<',d)} {
+      margin-top: rem(6px);
+    }
   }
   &__remark {
     color: #898f9a;
