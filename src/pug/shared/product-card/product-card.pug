@@ -1,0 +1,40 @@
+mixin product-card(mods)
+  -
+    const baseName = 'product-card'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '_' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .product-card(class=allMods)&attributes(attributes)
+    .product-card__showcase
+      .product-card__icons
+        .product-card__icon
+          +picture('magnet.svg')
+        .product-card__icon
+          +picture('magnet.svg')
+      .product-card__labels
+        .product-card__label Новинка
+      figure.product-card__media
+        +picture('product.png')
+    .product-card__flipcard
+      .product-card__front
+        .product-card__info
+          span.product-card__fact Антистатические полы и покрытия
+          h4.product-card__title АЛЬФАПОЛ ПУ-4 ВН АСХ
+          p.product-card__description Антистатический кислотостойкий щелочестойкий термостойкий полиуретан-цементный промышленный пол
+        .product-card__economy
+          p.product-card__price 921,2 ₽
+          .product-card__subline
+            .product-card__remark Цена за 1 кг
+            .product-card__action
+              +arrow
+      .product-card__back
+        p.product-card__details Полиуретановая грунтовка для создания токопроводящего адгезионного слоя по минеральным и полимерным основаниям перед устройством антистатических полимерных покрытий пола. Однокомпонентная. Содержит органический растворитель. Для внутренних работ.
+        .product-card__lone-action
+          .product-card__action
+            +arrow

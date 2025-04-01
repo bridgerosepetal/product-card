@@ -1,0 +1,159 @@
+.product-card {
+  //TODO: add Rubik as $font
+  //TODO: apply transition
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 400;
+
+  border-radius: rem(6px);
+
+  width: rem(896px);
+
+  @media #{media('<',d)} {
+    border-radius: rem(4px);
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: column;
+  }
+  &__icon {
+    border-radius: rem(4px);
+    padding: rem(10px);
+
+    background-color: #fff;
+  }
+
+  &__labels {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    width: fit-content;
+
+    display: inline-block;
+
+    padding: rem(8px) rem(16px);
+
+    color: #0e2245;
+    font-size: rem(16px);
+    line-height: 130%;
+    letter-spacing: rem(-0.16px);
+    text-transform: uppercase;
+
+    border-radius: rem(6px);
+    background: linear-gradient(95deg, #fcff6b 4.15%, #c7ff6b 94.41%);
+  }
+
+  &__showcase {
+    vertical-align: center;
+  }
+  &__media {
+    width: rem(212px);
+    height: rem(377px);
+  }
+
+  &__flipcard {
+    background-color: #fff;
+
+    border-radius: rem(4px);
+    padding: rem(40px);
+
+    @media #{media('<',d)} {
+      padding: rem(15px) rem(16px);
+    }
+
+    @media #{media('>',t)} and (hover: hover) and (pointer: fine) {
+      &:hover {
+        & > .product-card__front {
+          visibility: hidden;
+          display: none;
+        }
+        & > .product-card__back {
+          visibility: visible;
+        }
+      }
+    }
+  }
+  &__front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    visibility: visible;
+  }
+  &__back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    visibility: hidden;
+  }
+
+  &__info {
+  }
+  &__fact {
+    padding: rem(8px) rem(16px);
+    border-radius: rem(4px);
+
+    color: #898f9a;
+    font-size: rem(16px);
+    line-height: 150%; // rem(24) if needed
+    letter-spacing: rem(-0.16px);
+  }
+  &__title {
+    color: #0e2245;
+    font-size: rem(40px);
+    line-height: 110%; /* 44px */
+    letter-spacing: rem(-0.8px);
+    text-transform: uppercase;
+  }
+  &__description {
+    color: #0e2245;
+    font-size: rem(20px);
+    line-height: 150%;
+    letter-spacing: rem(-0.2px);
+  }
+
+  &__economy {
+  }
+  &__pricing {
+    color: #0e2245;
+    font-family: Rubik;
+    font-size: rem(32px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; // equals rem(41.6) if base is 32px
+    letter-spacing: rem(-0.32px);
+  }
+  &__price {
+    color: #0e2245;
+    font-size: rem(32px);
+    line-height: 130%;
+    letter-spacing: rem(-0.32px);
+  }
+  &__subline {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__remark {
+    color: #898f9a;
+    font-size: rem(16px);
+    font-weight: 400;
+    line-height: 150%; // equals rem(24) if base is 16px
+    letter-spacing: rem(-0.16px);
+  }
+  &__action {
+    aspect-ratio: 1 / 1;
+    width: rem(24px);
+  }
+  &__lone-action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__details {
+  }
+  &__tooltip {
+  }
+}
