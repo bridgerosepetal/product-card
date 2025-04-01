@@ -10,12 +10,14 @@ mixin product-card(mods)
       allMods = allMods.trim()
     }
 
-  .product-card(class=allMods)&attributes(attributes)
+  a.product-card(class=allMods)&attributes(attributes)
     .product-card__showcase
       .product-card__icons
-        .product-card__icon
+        +icon
           +picture('magnet.svg')
-        .product-card__icon
+        +icon
+          +picture('magnet.svg')
+        +icon
           +picture('magnet.svg')
       .product-card__labels
         .product-card__label Новинка
@@ -34,7 +36,9 @@ mixin product-card(mods)
             .product-card__action
               +arrow
       .product-card__back
-        p.product-card__details Полиуретановая грунтовка для создания токопроводящего адгезионного слоя по минеральным и полимерным основаниям перед устройством антистатических полимерных покрытий пола. Однокомпонентная. Содержит органический растворитель. Для внутренних работ.
+        p.product-card__description Полиуретановая грунтовка для создания токопроводящего адгезионного слоя по минеральным и полимерным основаниям перед устройством антистатических полимерных покрытий пола. Однокомпонентная. Содержит органический растворитель. Для внутренних работ.
         .product-card__lone-action
           .product-card__action
             +arrow
+  +icon
+    +picture('magnet.svg')
