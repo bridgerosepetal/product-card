@@ -5,6 +5,8 @@
   font-style: normal;
   font-weight: 400;
 
+  max-height: rem(454px);
+
   cursor: pointer;
 
   display: grid;
@@ -28,7 +30,7 @@
   @media #{media('<',d)} {
     border-radius: rem(4px);
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: minmax(0, rem(227px)) auto;
     width: rem(351px);
     gap: 0;
   }
@@ -127,7 +129,7 @@
 
     @media #{media('<',d)} {
       padding: rem(16px) rem(16px);
-      height: fit-content;
+      height: 100%;
     }
 
     @media #{media('>',t)} and (hover: hover) and (pointer: fine) {
@@ -220,6 +222,8 @@
     @media #{media('<',d)} {
       margin-top: rem(12px);
 
+      -webkit-line-clamp: 1;
+
       /* H4 */
       font-family: Rubik;
       font-size: rem(20px);
@@ -246,6 +250,8 @@
 
     @media #{media('<',d)} {
       margin-top: rem(12px);
+
+      -webkit-line-clamp: 3;
 
       /* Text 1 */
       font-family: Rubik;
