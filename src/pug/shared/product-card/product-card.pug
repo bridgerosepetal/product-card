@@ -1,4 +1,4 @@
-mixin product-card(mods)
+mixin product-card(picture, icons, labels, title, fact, description, details, price, remark, mods)
   -
     const baseName = 'product-card'
     let allMods = ''
@@ -13,32 +13,40 @@ mixin product-card(mods)
   a.product-card(class=allMods)&attributes(attributes)
     .product-card__showcase
       .product-card__icons
-        +icon("Универсальное применение")
-          +picture('magnet.svg')
-        +icon("Текст")
-          +picture('magnet.svg')
-        +icon("Еще текст")
-          +picture('magnet.svg')
+        each icon in icons 
+          case icon.toLowerCase()
+            when "Magnet".toLowerCase()
+              +icon("Магнит")
+                +picture('magnet.svg')
+            when "Box".toLowerCase()
+              +icon("Коробка")
+                +picture('box.svg')
+            when "Temp".toLowerCase()
+              +icon("Температура")
+                +picture('temp.svg')
+            when "Stove".toLowerCase()
+              +icon("Плитка")
+                +picture('stove.svg')
       .product-card__labels
-        .product-card__label Новинка
+        each label in labels
+          .product-card__label= label
       figure.product-card__media
         +picture('product.png')
     .product-card__flipcard
       .product-card__front
         .product-card__info
-          span.product-card__fact Антистатические полы и покрытия
-          h4.product-card__title АЛЬФАПОЛ ПУ-4 ВН АСХ
-          p.product-card__description Антистатический кислотостойкий щелочестойкий термостойкий полиуретан-цементный промышленный пол
+          if fact
+            span.product-card__fact= fact
+          h4.product-card__title= title
+          p.product-card__description= description
         .product-card__economy
-          p.product-card__price 921,2 ₽
+          p.product-card__price= price
           .product-card__subline
-            .product-card__remark Цена за 1 кг
+            .product-card__remark= remark
             .product-card__action
               +arrow
       .product-card__back
-        p.product-card__description Полиуретановая грунтовка для создания токопроводящего адгезионного слоя по минеральным и полимерным основаниям перед устройством антистатических полимерных покрытий пола. Однокомпонентная. Содержит органический растворитель. Для внутренних работ.
+        p.product-card__details= details
         .product-card__lone-action
           .product-card__action
             +arrow
-  +icon
-    +picture('magnet.svg')
